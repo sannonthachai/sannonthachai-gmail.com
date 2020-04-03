@@ -30,3 +30,7 @@ func (repo *Repository) FindAll() []domains.TableSchema {
 	repo.Repo.Db.Find(&schemas)
 	return schemas
 }
+
+func (repo *Repository) DeleteBy(code string) {
+	repo.Repo.Db.Delete(&domains.TableSchema{}, "Code = ?", code)
+}
